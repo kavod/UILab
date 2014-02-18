@@ -99,7 +99,7 @@ public class ToDoManagerActivity extends ListActivity {
 				titleView.setText(mToDoItem.getTitle());
 				
 				View statusCheckBox = (View) view.findViewById(R.id.statusCheckBox);
-				switch(mToDoItem.getStatus())
+				/*switch(mToDoItem.getStatus())
 				{
 				case DONE:
 					statusCheckBox.setChecked(true);
@@ -107,7 +107,7 @@ public class ToDoManagerActivity extends ListActivity {
 				default:
 					priorityView.setText("LOW");
 					break;
-				}
+				}*/
 				
 				TextView priorityView = (TextView) view.findViewById(R.id.priorityView);
 				switch(mToDoItem.getPriority())
