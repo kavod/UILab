@@ -94,9 +94,38 @@ public class ToDoManagerActivity extends ListActivity {
 			{
 				ToDoItem mToDoItem = new ToDoItem(data);
 				View view = getLayoutInflater().inflate(R.layout.todo_item, null);
+				
 				TextView titleView = (TextView) view.findViewById(R.id.titleView);
-				TextView StatusLabel = (TextView) view.findViewById(R.id.StatusLabel);
-				TextView statusCheckBox = (TextView) view.findViewById(R.id.statusCheckBox);
+				titleView.setText(mToDoItem.getTitle());
+				
+				View statusCheckBox = (View) view.findViewById(R.id.statusCheckBox);
+				switch(mToDoItem.getStatus())
+				{
+				case DONE:
+					statusCheckBox.setChecked(true);
+					break;
+				default:
+					priorityView.setText("LOW");
+					break;
+				}
+				
+				TextView priorityView = (TextView) view.findViewById(R.id.priorityView);
+				switch(mToDoItem.getPriority())
+				{
+				case HIGH:
+					priorityView.setText("HIGH");
+					break;
+				case MED:
+					priorityView.setText("MED");
+					break;
+				case LOW:
+					priorityView.setText("LOW");
+					break;
+				}
+				
+				TextView dateView = (TextView) view.findViewById(R.id.dateView);
+				
+				getListView().addHeaderView(view);
 			}
 		}
 	}
