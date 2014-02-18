@@ -109,6 +109,7 @@ public class ToDoManagerActivity extends ListActivity {
 					break;
 				}*/
 				
+				
 				TextView priorityView = (TextView) view.findViewById(R.id.priorityView);
 				switch(mToDoItem.getPriority())
 				{
