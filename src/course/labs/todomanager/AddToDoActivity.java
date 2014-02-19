@@ -34,7 +34,6 @@ public class AddToDoActivity extends Activity {
 	private static String dateString;
 	private static TextView dateView;
 	private static TextView timeView;
-
 	
 	private Date mDate;
 	private RadioGroup mPriorityRadioGroup;

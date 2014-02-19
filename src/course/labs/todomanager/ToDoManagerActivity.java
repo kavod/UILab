@@ -27,6 +27,10 @@ import android.widget.TextView;
 import course.labs.todomanager.ToDoItem.Priority;
 import course.labs.todomanager.ToDoItem.Status;
 
+import android.widget.CheckBox;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class ToDoManagerActivity extends ListActivity {
 
 	// Add a ToDoItem Request Code
@@ -95,21 +99,23 @@ public class ToDoManagerActivity extends ListActivity {
 				ToDoItem mToDoItem = new ToDoItem(data);
 				View view = getLayoutInflater().inflate(R.layout.todo_item, null);
 				
+				// Title
 				TextView titleView = (TextView) view.findViewById(R.id.titleView);
 				titleView.setText(mToDoItem.getTitle());
 				
-				View statusCheckBox = (View) view.findViewById(R.id.statusCheckBox);
-				/*switch(mToDoItem.getStatus())
+				// Checkbox done/not done
+				CheckBox statusCheckBox = (CheckBox) view.findViewById(R.id.statusCheckBox);
+				switch(mToDoItem.getStatus())
 				{
 				case DONE:
 					statusCheckBox.setChecked(true);
 					break;
 				default:
-					priorityView.setText("LOW");
+					statusCheckBox.setChecked(false);
 					break;
-				}*/
+				}
 				
-				
+				// Priority
 				TextView priorityView = (TextView) view.findViewById(R.id.priorityView);
 				switch(mToDoItem.getPriority())
 				{
@@ -124,7 +130,9 @@ public class ToDoManagerActivity extends ListActivity {
 					break;
 				}
 				
+				// Date				
 				TextView dateView = (TextView) view.findViewById(R.id.dateView);
+				dateView.setText(ToDoItem.FORMAT.format(mToDoItem.getDate()));
 				
 				getListView().addHeaderView(view);
 			}
