@@ -35,7 +35,7 @@ public class ToDoListAdapter extends BaseAdapter {
 	// Notify observers that the data set has changed
 
 	public void add(ToDoItem item) {
-
+		
 		mItems.add(item);
 		notifyDataSetChanged();
 
@@ -87,10 +87,13 @@ public class ToDoListAdapter extends BaseAdapter {
 
 		//TODO - Get the current ToDoItem
 		final ToDoItem toDoItem = null;
+		toDoItem = mItems.get(position);
 
 		//TODO - Inflate the View for this ToDoItem
 		// from todo_item.xml.
 		RelativeLayout itemLayout = null;
+		LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		itemLayout = mInflater.inflate(R.layout.todo_item, parent);
 		
 		//TODO - Fill in specific ToDoItem data
 		// Remember that the data that goes in this View

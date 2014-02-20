@@ -97,6 +97,8 @@ public class ToDoManagerActivity extends ListActivity {
 			if (resultCode == RESULT_OK)
 			{
 				ToDoItem mToDoItem = new ToDoItem(data);
+				mAdapter.add(mToDoItem);
+				/*
 				View view = getLayoutInflater().inflate(R.layout.todo_item, null);
 				
 				// Title
@@ -133,8 +135,9 @@ public class ToDoManagerActivity extends ListActivity {
 				// Date				
 				TextView dateView = (TextView) view.findViewById(R.id.dateView);
 				dateView.setText(ToDoItem.FORMAT.format(mToDoItem.getDate()));
+				mAdapter.add(mToDoItem);
 				
-				getListView().addHeaderView(view);
+				//getListView().addHeaderView(view);*/
 			}
 		}
 	}
@@ -184,8 +187,9 @@ public class ToDoManagerActivity extends ListActivity {
 		}
 	}
 
-	private void dump() {
-
+	private void dump() 
+	{
+		log("test");
 		for (int i = 0; i < mAdapter.getCount(); i++) {
 			String data = ((ToDoItem) mAdapter.getItem(i)).toLog();
 			log("Item " + i + ": " + data.replace(ToDoItem.ITEM_SEP, ","));
